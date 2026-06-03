@@ -8,6 +8,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  /* NJIT's official "Highlander Red" — used sparingly for brand presence:
+     top stripe, primary action, brand-emphasized text. Avoid using it as
+     a "selected" state since red is also our Closed-section semantic. */
+  --color-njit-red: #cc0033;
+  --color-njit-red-hover: #a8002a;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -22,5 +27,25 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+@media print {
+  @page {
+    margin: 0.4in;
+  }
+  html,
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  aside {
+    display: none !important;
+  }
+  main {
+    overflow: visible !important;
+  }
 }
