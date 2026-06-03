@@ -1,6 +1,5 @@
 name: Refresh NJIT course data
-env:
- FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 # Runs the scraper on a schedule, commits the updated JSON back to the repo
 # (which triggers a Vercel deploy). Also runnable on demand via the
 # "Run workflow" button in the Actions tab.
@@ -34,12 +33,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '22'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install dependencies
